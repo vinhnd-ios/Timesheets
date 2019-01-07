@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpreadsheetView
 
 class SumScheduleCell: UICollectionViewCell {
     @IBOutlet weak var containerView: UIView!

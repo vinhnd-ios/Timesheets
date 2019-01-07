@@ -12,12 +12,18 @@
 		0C82E08321E04DCC00BF6975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C82E08121E04DCC00BF6975 /* Main.storyboard */; };
 		0C82E08521E04DCE00BF6975 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C82E08421E04DCE00BF6975 /* Assets.xcassets */; };
 		0C82E08821E04DCE00BF6975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C82E08621E04DCE00BF6975 /* LaunchScreen.storyboard */; };
-		0C82E09021E057F200BF6975 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E08F21E057F200BF6975 /* Cells.swift */; };
+		0C82E09021E057F200BF6975 /* TimesheetInforCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E08F21E057F200BF6975 /* TimesheetInforCell.swift */; };
 		0C82E09321E09D2C00BF6975 /* SumScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E09121E09D2C00BF6975 /* SumScheduleCell.swift */; };
 		0C82E09421E09D2C00BF6975 /* SumScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C82E09221E09D2C00BF6975 /* SumScheduleCell.xib */; };
 		0C82E09621E0A9FE00BF6975 /* TimesheetsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E09521E0A9FE00BF6975 /* TimesheetsHeaderView.swift */; };
 		0C82E09C21E0B74F00BF6975 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E09B21E0B74F00BF6975 /* DateExtensions.swift */; };
 		0C82E09E21E0B8CB00BF6975 /* DJCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E09D21E0B8CB00BF6975 /* DJCalendar.swift */; };
+		0C9106E121E2E63E006A3A06 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9106E021E2E63D006A3A06 /* ScheduleCell.swift */; };
+		0C9106E321E2E66B006A3A06 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9106E221E2E66B006A3A06 /* DayCell.swift */; };
+		0C9106E521E2E69E006A3A06 /* TimeTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9106E421E2E69E006A3A06 /* TimeTitleCell.swift */; };
+		0C9106E921E2E81C006A3A06 /* SumScheduleDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9106E821E2E81C006A3A06 /* SumScheduleDatasource.swift */; };
+		0C9106EB21E2ED29006A3A06 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9106EA21E2ED29006A3A06 /* ViewControllerExtensions.swift */; };
+		0C9106EF21E2EFB5006A3A06 /* TimesheetsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9106EE21E2EFB5006A3A06 /* TimesheetsDatasource.swift */; };
 		A3D47C2EB27C7949015B74DF /* Pods_Timesheets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9A2C514A604904F3EB2FD4 /* Pods_Timesheets.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,12 +35,18 @@
 		0C82E08421E04DCE00BF6975 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C82E08721E04DCE00BF6975 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C82E08921E04DCE00BF6975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C82E08F21E057F200BF6975 /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		0C82E08F21E057F200BF6975 /* TimesheetInforCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesheetInforCell.swift; sourceTree = "<group>"; };
 		0C82E09121E09D2C00BF6975 /* SumScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumScheduleCell.swift; sourceTree = "<group>"; };
 		0C82E09221E09D2C00BF6975 /* SumScheduleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SumScheduleCell.xib; sourceTree = "<group>"; };
 		0C82E09521E0A9FE00BF6975 /* TimesheetsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetsHeaderView.swift; sourceTree = "<group>"; };
 		0C82E09B21E0B74F00BF6975 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0C82E09D21E0B8CB00BF6975 /* DJCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DJCalendar.swift; sourceTree = "<group>"; };
+		0C9106E021E2E63D006A3A06 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		0C9106E221E2E66B006A3A06 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		0C9106E421E2E69E006A3A06 /* TimeTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTitleCell.swift; sourceTree = "<group>"; };
+		0C9106E821E2E81C006A3A06 /* SumScheduleDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumScheduleDatasource.swift; sourceTree = "<group>"; };
+		0C9106EA21E2ED29006A3A06 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		0C9106EE21E2EFB5006A3A06 /* TimesheetsDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesheetsDatasource.swift; sourceTree = "<group>"; };
 		5DAAEAD96A039AC18CBFE71B /* Pods-Timesheets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timesheets.release.xcconfig"; path = "Target Support Files/Pods-Timesheets/Pods-Timesheets.release.xcconfig"; sourceTree = "<group>"; };
 		BB33CBE672FDD4E3942C57B8 /* Pods-Timesheets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timesheets.debug.xcconfig"; path = "Target Support Files/Pods-Timesheets/Pods-Timesheets.debug.xcconfig"; sourceTree = "<group>"; };
 		FD9A2C514A604904F3EB2FD4 /* Pods_Timesheets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timesheets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,18 +87,40 @@
 			children = (
 				0C82E08921E04DCE00BF6975 /* Info.plist */,
 				0C82E07D21E04DCC00BF6975 /* AppDelegate.swift */,
-				0C82E08F21E057F200BF6975 /* Cells.swift */,
 				0C82E09B21E0B74F00BF6975 /* DateExtensions.swift */,
 				0C82E09D21E0B8CB00BF6975 /* DJCalendar.swift */,
-				0C82E09121E09D2C00BF6975 /* SumScheduleCell.swift */,
-				0C82E09521E0A9FE00BF6975 /* TimesheetsHeaderView.swift */,
 				0C82E07F21E04DCC00BF6975 /* ViewController.swift */,
+				0C9106EA21E2ED29006A3A06 /* ViewControllerExtensions.swift */,
 				0C82E08421E04DCE00BF6975 /* Assets.xcassets */,
 				0C82E09221E09D2C00BF6975 /* SumScheduleCell.xib */,
+				0C9106E621E2E7C0006A3A06 /* CustomView */,
+				0C9106E721E2E7E5006A3A06 /* Datasources */,
 				0C82E08621E04DCE00BF6975 /* LaunchScreen.storyboard */,
 				0C82E08121E04DCC00BF6975 /* Main.storyboard */,
 			);
 			path = Timesheets;
+			sourceTree = "<group>";
+		};
+		0C9106E621E2E7C0006A3A06 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				0C82E09521E0A9FE00BF6975 /* TimesheetsHeaderView.swift */,
+				0C9106E421E2E69E006A3A06 /* TimeTitleCell.swift */,
+				0C82E08F21E057F200BF6975 /* TimesheetInforCell.swift */,
+				0C82E09121E09D2C00BF6975 /* SumScheduleCell.swift */,
+				0C9106E221E2E66B006A3A06 /* DayCell.swift */,
+				0C9106E021E2E63D006A3A06 /* ScheduleCell.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		0C9106E721E2E7E5006A3A06 /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				0C9106EE21E2EFB5006A3A06 /* TimesheetsDatasource.swift */,
+				0C9106E821E2E81C006A3A06 /* SumScheduleDatasource.swift */,
+			);
+			path = Datasources;
 			sourceTree = "<group>";
 		};
 		0EA513688EF19C94AEC3EE9F /* Pods */ = {
@@ -228,11 +262,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C82E09621E0A9FE00BF6975 /* TimesheetsHeaderView.swift in Sources */,
+				0C9106E321E2E66B006A3A06 /* DayCell.swift in Sources */,
 				0C82E08021E04DCC00BF6975 /* ViewController.swift in Sources */,
-				0C82E09021E057F200BF6975 /* Cells.swift in Sources */,
+				0C9106E121E2E63E006A3A06 /* ScheduleCell.swift in Sources */,
+				0C9106EB21E2ED29006A3A06 /* ViewControllerExtensions.swift in Sources */,
+				0C9106EF21E2EFB5006A3A06 /* TimesheetsDatasource.swift in Sources */,
+				0C82E09021E057F200BF6975 /* TimesheetInforCell.swift in Sources */,
+				0C9106E521E2E69E006A3A06 /* TimeTitleCell.swift in Sources */,
 				0C82E09321E09D2C00BF6975 /* SumScheduleCell.swift in Sources */,
 				0C82E09E21E0B8CB00BF6975 /* DJCalendar.swift in Sources */,
 				0C82E07E21E04DCC00BF6975 /* AppDelegate.swift in Sources */,
+				0C9106E921E2E81C006A3A06 /* SumScheduleDatasource.swift in Sources */,
 				0C82E09C21E0B74F00BF6975 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
