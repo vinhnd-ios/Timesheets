@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6131FE21E353710070C0F3 /* TimesheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6131FD21E353710070C0F3 /* TimesheetItem.swift */; };
+		0C61320021E35F1E0070C0F3 /* ShiftItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6131FF21E35F1E0070C0F3 /* ShiftItem.swift */; };
+		0C61320221E35F3E0070C0F3 /* SumOfTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C61320121E35F3E0070C0F3 /* SumOfTime.swift */; };
+		0C61320421E35FA00070C0F3 /* WorkingHoursInMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C61320321E35FA00070C0F3 /* WorkingHoursInMonth.swift */; };
 		0C82E07E21E04DCC00BF6975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E07D21E04DCC00BF6975 /* AppDelegate.swift */; };
 		0C82E08021E04DCC00BF6975 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C82E07F21E04DCC00BF6975 /* ViewController.swift */; };
 		0C82E08321E04DCC00BF6975 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C82E08121E04DCC00BF6975 /* Main.storyboard */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C6131FD21E353710070C0F3 /* TimesheetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetItem.swift; sourceTree = "<group>"; };
+		0C6131FF21E35F1E0070C0F3 /* ShiftItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftItem.swift; sourceTree = "<group>"; };
+		0C61320121E35F3E0070C0F3 /* SumOfTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumOfTime.swift; sourceTree = "<group>"; };
+		0C61320321E35FA00070C0F3 /* WorkingHoursInMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursInMonth.swift; sourceTree = "<group>"; };
 		0C82E07A21E04DCC00BF6975 /* Timesheets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timesheets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C82E07D21E04DCC00BF6975 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C82E07F21E04DCC00BF6975 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +72,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C6131FC21E353520070C0F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0C6131FF21E35F1E0070C0F3 /* ShiftItem.swift */,
+				0C61320121E35F3E0070C0F3 /* SumOfTime.swift */,
+				0C6131FD21E353710070C0F3 /* TimesheetItem.swift */,
+				0C61320321E35FA00070C0F3 /* WorkingHoursInMonth.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0C82E07121E04DCC00BF6975 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +104,7 @@
 		0C82E07C21E04DCC00BF6975 /* Timesheets */ = {
 			isa = PBXGroup;
 			children = (
+				0C6131FC21E353520070C0F3 /* Model */,
 				0C82E08921E04DCE00BF6975 /* Info.plist */,
 				0C82E07D21E04DCC00BF6975 /* AppDelegate.swift */,
 				0C82E09B21E0B74F00BF6975 /* DateExtensions.swift */,
@@ -261,8 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C61320421E35FA00070C0F3 /* WorkingHoursInMonth.swift in Sources */,
 				0C82E09621E0A9FE00BF6975 /* TimesheetsHeaderView.swift in Sources */,
+				0C6131FE21E353710070C0F3 /* TimesheetItem.swift in Sources */,
 				0C9106E321E2E66B006A3A06 /* DayCell.swift in Sources */,
+				0C61320221E35F3E0070C0F3 /* SumOfTime.swift in Sources */,
 				0C82E08021E04DCC00BF6975 /* ViewController.swift in Sources */,
 				0C9106E121E2E63E006A3A06 /* ScheduleCell.swift in Sources */,
 				0C9106EB21E2ED29006A3A06 /* ViewControllerExtensions.swift in Sources */,
@@ -273,6 +296,7 @@
 				0C82E09E21E0B8CB00BF6975 /* DJCalendar.swift in Sources */,
 				0C82E07E21E04DCC00BF6975 /* AppDelegate.swift in Sources */,
 				0C9106E921E2E81C006A3A06 /* SumScheduleDatasource.swift in Sources */,
+				0C61320021E35F1E0070C0F3 /* ShiftItem.swift in Sources */,
 				0C82E09C21E0B74F00BF6975 /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
