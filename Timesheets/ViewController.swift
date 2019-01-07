@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     
     var schedules: [[CGFloat]] = []
     
+    static let INSIDE_YEAR_FORMAT = "yyyy年MM月"
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +83,7 @@ class ViewController: UIViewController {
         headerView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
-        headerView.updateTitleLbl(titleAttributeString())
+        headerView.updateTitleLbl(getTitleHeaderView())
     }
     
     func setupDatasources() {
@@ -91,7 +93,7 @@ class ViewController: UIViewController {
         self.sumScheduleCollectionView.delegate = sumScheduleDatasource
         
         // Timesheets View
-        timesheetsDatasource = TimesheetsDatasource(parentController: self, timesheetsView: spreadsheetView)
+        timesheetsDatasource = TimesheetsDatasource(parentController: self, timesheetsView: spreadsheetView, schedules: schedules)
         timesheetsDatasource.updateCurrentDay()
         self.spreadsheetView.dataSource = timesheetsDatasource
         self.spreadsheetView.delegate = timesheetsDatasource
@@ -119,18 +121,12 @@ class ViewController: UIViewController {
             self.timesheetsDatasource.currentDate.add(.month, value: isPast ? -monthOffset : monthOffset)
         }
         
-        headerView.updateTitleLbl(titleAttributeString())
+        let titleHeader = getTitleHeaderView()
+        headerView.updateTitleLbl(titleHeader)
     }
     
-    func titleAttributeString(previous: Bool) -> NSAttributedString {
-        self.timesheetsDatasource.currentDate.add(.day, value: previous ? -monthOffset : monthOffset)
-        return titleAttributeString()
-    }
-    
-    let INSIDE_YEAR_FORMAT = "yyyy年MM月"
-    
-    func titleAttributeString() -> NSAttributedString {
-        let dateString = stringFromDate(self.timesheetsDatasource.currentDate, format: INSIDE_YEAR_FORMAT)
+    func getTitleHeaderView() -> NSAttributedString {
+        let dateString = stringFromDate(self.timesheetsDatasource.currentDate, format: ViewController.INSIDE_YEAR_FORMAT)
         
         let attributeString = NSAttributedString(string: dateString,
                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: 19),
