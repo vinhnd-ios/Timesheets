@@ -28,13 +28,13 @@ struct DayInWeekJpn {
     static let sunday = "日 日"
 }
 
-struct TimesheetInfo {
-    static let firstCheckIn = "出勤"
-    static let lastCheckOut = "退勤"
-    static let hospitalStayTime = "滞在"
-    static let extendedTime = "超過"
-    static let overtime = "残業"
-    static let otherTime = "その他"
-    static let breaktime = "休憩"
-    static let nightWorkTime = "深夜"
+enum TimesheetInfo: String {
+    case firstCheckIn = "出勤"
+    case lastCheckOut = "退勤"
+    case hospitalStayTime = "滞在"
+    case extendedTime = "超過"
+    case overtime = "残業"
+    case otherTime = "その他"
+    case breaktime = "休憩"
+    case nightWorkTime = "深夜"
 }

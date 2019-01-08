@@ -13,7 +13,7 @@ class TimesheetsDatasource: NSObject {
     var width: CGFloat?
     var height: CGFloat?
     
-    var schedules: [[CGFloat]] = []
+    var timeSheet: TimeSheet?
     
     var numberOfItems: Int?
     
@@ -21,14 +21,14 @@ class TimesheetsDatasource: NSObject {
     
     weak var timesheetsView: SpreadsheetView?
     
-    static let timesheetInfors: [String] = [TimesheetInfo.firstCheckIn,
-                                     TimesheetInfo.lastCheckOut,
-                                     TimesheetInfo.hospitalStayTime,
-                                     TimesheetInfo.extendedTime,
-                                     TimesheetInfo.overtime,
-                                     TimesheetInfo.otherTime,
-                                     TimesheetInfo.breaktime,
-                                     TimesheetInfo.nightWorkTime]
+    static let timesheetInfors: [TimesheetInfo] = [.firstCheckIn,
+                                                 .lastCheckOut,
+                                                 .hospitalStayTime,
+                                                 .extendedTime,
+                                                 .overtime,
+                                                 .otherTime,
+                                                 .breaktime,
+                                                 .nightWorkTime]
     
     static let dayDictionaries: [String: String] = [DayInWeekEng.monday: DayInWeekJpn.monday,
                                              DayInWeekEng.tuesday: DayInWeekJpn.tuesday,
@@ -51,6 +51,10 @@ class TimesheetsDatasource: NSObject {
     static let colorSaturday = UIColor(rgb: 0x4991DC)
     static let colorSunday = UIColor(rgb: 0xFF0000)
     static let colorDayNormal = UIColor(rgb: 0x3B3732)
+    static let colorScheduleWhite = UIColor(rgb: 0x000000)
+    static let colorScheduleLightGray = UIColor(rgb: 0xF8F8F8)
+    static let colorDay = UIColor(rgb: 0xE8E8E8)
+    
     
     static let widthFirstColumn: CGFloat = 88
     static let widthOtherColumn: CGFloat = 78
@@ -61,13 +65,13 @@ class TimesheetsDatasource: NSObject {
     
     var currentDate = Date()
     
-    init(parentController: ViewController, timesheetsView: SpreadsheetView, schedules: [[CGFloat]]) {
+    init(parentController: ViewController, timesheetsView: SpreadsheetView, timeSheet: TimeSheet?) {
         super.init()
         
         self.parentController = parentController
         self.timesheetsView = timesheetsView
         self.timesheetsView?.scrollView.delegate = self
-        self.schedules = schedules
+        self.timeSheet = timeSheet
     }
     
     // MARK: - UI Property
@@ -174,6 +178,7 @@ extension TimesheetsDatasource: SpreadsheetViewDataSource {
     }
     
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
+        // First cell corner left
         if case (0, 0) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: TimeTitleCell.self), for: indexPath) as! TimeTitleCell
             cell.label.text = ""
@@ -181,9 +186,10 @@ extension TimesheetsDatasource: SpreadsheetViewDataSource {
             return cell
         }
         
+        // Time sheet information
         if case (1...TimesheetsDatasource.timesheetInfors.count, 0) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: TimesheetInforCell.self), for: indexPath) as! TimesheetInforCell
-            cell.label.text = TimesheetsDatasource.timesheetInfors[indexPath.column - 1]
+            cell.label.text = TimesheetsDatasource.timesheetInfors[indexPath.column - 1].rawValue
             cell.gridlines.left = .none
             if indexPath.column != TimesheetsDatasource.timesheetInfors.count + 1 {
                 cell.gridlines.right = .none
@@ -191,6 +197,7 @@ extension TimesheetsDatasource: SpreadsheetViewDataSource {
             return cell
         }
         
+        // Day Cell
         if case (0, 1...dayNames.count) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: DayCell.self), for: indexPath) as! DayCell
             cell.gridlines.top = .none
@@ -198,6 +205,7 @@ extension TimesheetsDatasource: SpreadsheetViewDataSource {
             
             let dayInWeek = dayNames[indexPath.row - 1]
             cell.label.text = dayInWeek
+            cell.backgroundColor = TimesheetsDatasource.colorDay
             
             if dayInWeek.contains(DayInWeekJpn.saturday) {
                 cell.label.textColor = TimesheetsDatasource.colorSaturday
@@ -210,6 +218,7 @@ extension TimesheetsDatasource: SpreadsheetViewDataSource {
             return cell
         }
         
+        // Schedule Cell
         if case (1...TimesheetsDatasource.timesheetInfors.count, 1...dayNames.count) = (indexPath.column, indexPath.row) {
             let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: ScheduleCell.self), for: indexPath) as! ScheduleCell
             if indexPath.column != TimesheetsDatasource.timesheetInfors.count {
@@ -219,6 +228,38 @@ extension TimesheetsDatasource: SpreadsheetViewDataSource {
                 cell.gridlines.left = .none
             }
             
+            guard let timesheetItem = self.timeSheet?.timeSheetItemList?[indexPath.row - 1] else {
+                return cell
+            }
+            
+            let timesheetInfor = TimesheetsDatasource.timesheetInfors[indexPath.column - 1]
+            switch timesheetInfor {
+            case .firstCheckIn:
+                cell.label.text = timesheetItem.checkInTime
+                break
+            case .lastCheckOut:
+                cell.label.text = timesheetItem.checkOutTime
+                break
+            case .hospitalStayTime:
+                cell.label.text = timesheetItem.inHospitalTime
+                break
+            case .extendedTime:
+                cell.label.text = timesheetItem.extendedTime
+                break
+            case .overtime:
+                cell.label.text = timesheetItem.overTime
+                break
+            case .otherTime:
+                cell.label.text = timesheetItem.otherTime
+                break
+            case .breaktime:
+                cell.label.text = timesheetItem.breakTime
+                break
+            case .nightWorkTime:
+                cell.label.text = timesheetItem.nightWorkTime
+                break
+            }
+        
             return cell
         }
         

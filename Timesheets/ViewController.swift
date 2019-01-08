@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var sumScheduleDatasource: SumScheduleDatasource!
     var timesheetsDatasource: TimesheetsDatasource!
     
-    var schedules: [[CGFloat]] = []
+    var timeSheet: TimeSheet?
     
     static let INSIDE_YEAR_FORMAT = "yyyy年MM月"
 
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     func setupSpreadsheetView() {
         spreadsheetView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
         spreadsheetView.showsHorizontalScrollIndicator = false
-        spreadsheetView.intercellSpacing = CGSize(width: 0, height: 0)
+        spreadsheetView.intercellSpacing = CGSize(width: 0, height: 0.5)
         spreadsheetView.gridStyle = .solid(width: 0.5, color: .lightGray)
         
         spreadsheetView.bounces = false
@@ -88,12 +88,12 @@ class ViewController: UIViewController {
     
     func setupDatasources() {
         // Sum schedule collection view
-        sumScheduleDatasource = SumScheduleDatasource.init(parentController: self, collectionView: sumScheduleCollectionView, schedules: schedules, numberOfItems: TimesheetsDatasource.timesheetInfors.count, width: TimesheetsDatasource.widthOtherColumn, height: TimesheetsDatasource.heightLastRow)
+        sumScheduleDatasource = SumScheduleDatasource.init(parentController: self, collectionView: sumScheduleCollectionView, timeSheet: timeSheet, width: TimesheetsDatasource.widthOtherColumn, height: TimesheetsDatasource.heightLastRow)
         self.sumScheduleCollectionView.dataSource = sumScheduleDatasource
         self.sumScheduleCollectionView.delegate = sumScheduleDatasource
         
         // Timesheets View
-        timesheetsDatasource = TimesheetsDatasource(parentController: self, timesheetsView: spreadsheetView, schedules: schedules)
+        timesheetsDatasource = TimesheetsDatasource(parentController: self, timesheetsView: spreadsheetView, timeSheet: timeSheet)
         timesheetsDatasource.updateCurrentDay()
         self.spreadsheetView.dataSource = timesheetsDatasource
         self.spreadsheetView.delegate = timesheetsDatasource
@@ -101,17 +101,8 @@ class ViewController: UIViewController {
     
     // MARK: - Handler
     private func handleUpdateDate(isPast: Bool) {
-//        let offset = isPast ? -monthOffset : monthOffset
-//        if presenter.needConfirmChangeDate(dayOffset) {
-//            confirmChangeDate(isPast: past, completed: {})
-//        } else {
-            changeDate(isPast: isPast)
-//        }
-        
-        timesheetsDatasource.updateCurrentDay()
-        DispatchQueue.main.async {
-            self.spreadsheetView.reloadData()
-        }
+        changeDate(isPast: isPast)
+        handleLoadTimeSheet()
     }
     
     private func changeDate(isPast: Bool, to date: Date? = nil) {
@@ -120,7 +111,9 @@ class ViewController: UIViewController {
         } else {
             self.timesheetsDatasource.currentDate.add(.month, value: isPast ? -monthOffset : monthOffset)
         }
+        timesheetsDatasource.updateCurrentDay()
         
+        // Update title header
         let titleHeader = getTitleHeaderView()
         headerView.updateTitleLbl(titleHeader)
     }
@@ -132,6 +125,26 @@ class ViewController: UIViewController {
                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: 19),
                                                               .foregroundColor: UIColor(rgb: 0x3B3732)])
         return attributeString
+    }
+    
+    /// Get time sheet data
+    func handleLoadTimeSheet() {
+        timeSheet = TimeSheet(dict: [:])
+        
+        self.reloadData()
+    }
+    
+    /// Reload data schedule and sum schedule time
+    func reloadData() {
+        self.timesheetsDatasource.timeSheet = self.timeSheet
+        self.sumScheduleDatasource.timeSheet = self.timeSheet
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            
+            self.sumScheduleCollectionView.reloadData()
+            self.spreadsheetView.reloadData()
+        }
     }
     
     // MARK: - Notifications

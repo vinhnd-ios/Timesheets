@@ -105,16 +105,15 @@
 			isa = PBXGroup;
 			children = (
 				0C6131FC21E353520070C0F3 /* Model */,
-				0C82E08921E04DCE00BF6975 /* Info.plist */,
+				0C9106E621E2E7C0006A3A06 /* CustomView */,
+				0C9106E721E2E7E5006A3A06 /* Datasources */,
 				0C82E07D21E04DCC00BF6975 /* AppDelegate.swift */,
+				0C82E08421E04DCE00BF6975 /* Assets.xcassets */,
 				0C82E09B21E0B74F00BF6975 /* DateExtensions.swift */,
 				0C82E09D21E0B8CB00BF6975 /* DJCalendar.swift */,
 				0C82E07F21E04DCC00BF6975 /* ViewController.swift */,
 				0C9106EA21E2ED29006A3A06 /* ViewControllerExtensions.swift */,
-				0C82E08421E04DCE00BF6975 /* Assets.xcassets */,
-				0C82E09221E09D2C00BF6975 /* SumScheduleCell.xib */,
-				0C9106E621E2E7C0006A3A06 /* CustomView */,
-				0C9106E721E2E7E5006A3A06 /* Datasources */,
+				0C82E08921E04DCE00BF6975 /* Info.plist */,
 				0C82E08621E04DCE00BF6975 /* LaunchScreen.storyboard */,
 				0C82E08121E04DCC00BF6975 /* Main.storyboard */,
 			);
@@ -127,6 +126,7 @@
 				0C82E09521E0A9FE00BF6975 /* TimesheetsHeaderView.swift */,
 				0C9106E421E2E69E006A3A06 /* TimeTitleCell.swift */,
 				0C82E08F21E057F200BF6975 /* TimesheetInforCell.swift */,
+				0C82E09221E09D2C00BF6975 /* SumScheduleCell.xib */,
 				0C82E09121E09D2C00BF6975 /* SumScheduleCell.swift */,
 				0C9106E221E2E66B006A3A06 /* DayCell.swift */,
 				0C9106E021E2E63D006A3A06 /* ScheduleCell.swift */,

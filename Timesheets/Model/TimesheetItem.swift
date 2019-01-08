@@ -54,7 +54,7 @@ class TimeSheetItem: NSObject {
     }
 }
 
-class Timesheets: NSObject {
+class TimeSheet: NSObject {
     var officeUserId: String?
     var sumOfTimeInCell: SumOfTime?
     var timeSheetItemList: [TimeSheetItem]?
